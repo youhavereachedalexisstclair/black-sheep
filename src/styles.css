@@ -1,0 +1,375 @@
+:root {
+  color-scheme: dark;
+  --bg: #000;
+  --fg: #fff;
+  --muted: rgba(255, 255, 255, 0.72);
+  --line: rgba(255, 255, 255, 0.45);
+  font-family: Syne, "Avenir Next", "Century Gothic", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--bg);
+  overflow-x: clip;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 1px solid var(--fg);
+  outline-offset: 4px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem 0.5rem;
+}
+
+.brand,
+.nav-link {
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.brand {
+  font-size: 0.82rem;
+}
+
+.nav-link {
+  font-size: 0.75rem;
+}
+
+.nav-link:hover {
+  opacity: 0.55;
+}
+
+.hero {
+  min-height: calc(100svh - 4.25rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem 1.25rem 4rem;
+}
+
+.flock {
+  width: min(88vw, 54vh, 540px);
+}
+
+.flock svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.sheep,
+.arrive {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+}
+
+.arrive-left {
+  animation: arrive-left 900ms cubic-bezier(0.16, 0.84, 0.32, 1) both;
+}
+
+.arrive-right {
+  animation: arrive-right 900ms cubic-bezier(0.16, 0.84, 0.32, 1) 80ms both;
+}
+
+.arrive-up {
+  animation: arrive-up 1000ms cubic-bezier(0.16, 0.84, 0.32, 1) 160ms both;
+}
+
+.sheep {
+  animation: bob 5.2s ease-in-out 1s infinite;
+}
+
+#sheep-right.sheep {
+  animation-delay: 1.08s;
+}
+
+#sheep-center.sheep {
+  animation-delay: 1.16s;
+}
+
+.glint {
+  opacity: 0;
+  animation: glint 5.2s ease-in-out 1.16s infinite;
+}
+
+.wordmark,
+.lede,
+.hero .cta {
+  animation: rise 800ms cubic-bezier(0.16, 0.84, 0.32, 1) 420ms both;
+}
+
+.lede {
+  animation-delay: 540ms;
+}
+
+.hero .cta {
+  animation-delay: 660ms;
+}
+
+.wordmark {
+  margin: 0.2rem 0 0;
+  font-size: clamp(2.4rem, 7vw, 5.4rem);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+.lede {
+  max-width: 26rem;
+  margin: 1rem 0 1.35rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.cta {
+  display: inline-block;
+  padding: 0.85rem 1.45rem;
+  border: 1px solid var(--fg);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.cta:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.contact {
+  max-width: 32rem;
+  margin: 0 auto;
+  padding: 5.5rem 1.5rem 2rem;
+}
+
+.contact h2 {
+  margin: 0;
+  font-size: clamp(2.15rem, 9vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.contact-copy {
+  margin: 0.7rem 0 1.8rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin: 0;
+  padding: 0.65rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--fg);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+textarea {
+  min-height: 6.5rem;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  border-bottom-color: var(--fg);
+}
+
+button {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+  padding: 0.9rem 1.45rem;
+  border: 0;
+  background: var(--fg);
+  color: var(--bg);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e8e8e8;
+}
+
+.form-error,
+.thanks {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  line-height: 1.45;
+}
+
+.footer {
+  padding: 2.5rem 1rem 2.25rem;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@keyframes arrive-left {
+  from {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes arrive-right {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes arrive-up {
+  from {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes glint {
+  0%,
+  64%,
+  100% {
+    opacity: 0;
+  }
+  72%,
+  84% {
+    opacity: 0.95;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .nav {
+    padding-inline: 1.1rem;
+  }
+
+  .wordmark {
+    letter-spacing: 0.12em;
+  }
+
+  .contact {
+    padding-top: 4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .arrive-left,
+  .arrive-right,
+  .arrive-up,
+  .sheep,
+  .glint,
+  .wordmark,
+  .lede,
+  .hero .cta {
+    animation: none;
+  }
+
+  .glint {
+    opacity: 0;
+  }
+}

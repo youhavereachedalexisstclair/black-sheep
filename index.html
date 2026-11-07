@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Black Sheep is a concept land studio. The herd builds the obvious parcels. We take the ones they walk past."
+    />
+    <title>Black Sheep</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <a class="brand" href="#top">Black Sheep</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="wordmark">
+        <div class="flock" id="flock-slot"></div>
+        <h1 class="wordmark" id="wordmark">Black Sheep</h1>
+        <p class="lede">
+          The herd builds the obvious parcels. We take the ones they walk past.
+        </p>
+        <a class="cta" href="#contact">Contact</a>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Start a<br />parcel</h2>
+        <p class="contact-copy">Tell us what the herd passed over.</p>
+        <form id="contact-form" novalidate>
+          <label>
+            Name
+            <input name="name" type="text" autocomplete="name" required />
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+          <label>
+            Note
+            <textarea name="note" rows="4" required></textarea>
+          </label>
+          <p class="form-error" id="form-error" role="alert" hidden></p>
+          <button type="submit">Send</button>
+        </form>
+        <p class="thanks" id="thanks" role="status" hidden>
+          Received. Nothing was sent. This is a concept site.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">A concept site.</footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
