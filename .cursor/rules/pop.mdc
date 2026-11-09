@@ -1,0 +1,20 @@
+---
+description: POP means commit and push to a shareable GitHub link, without publishing
+alwaysApply: true
+---
+
+# POP
+
+When the user says **POP** (alone or in a message), treat it as an explicit request to:
+
+1. Commit the current relevant changes (follow the repo's commit protocol)
+2. Push to the GitHub remote (`origin`)
+3. Reply with the shareable repo link
+
+This site is not connected to a domain. Do not build, deploy, or publish. No Wrangler, no Cloudflare Pages, no custom domain.
+
+If `origin` does not exist yet, create a private GitHub repo named `black-sheep` under `youhavereachedalexisstclair`, push `main` there, and return `https://github.com/youhavereachedalexisstclair/black-sheep`.
+
+Do not wait for separate "commit" or "push" wording. POP covers both.
+
+Still refuse destructive git actions unless separately and explicitly requested.

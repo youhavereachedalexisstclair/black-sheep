@@ -30,6 +30,24 @@
           The herd builds the obvious parcels. We take the ones they walk past.
         </p>
         <a class="cta" href="#contact">Contact</a>
+        <div class="ticker">
+          <div class="ticker-track">
+            <p>
+              The wet corner · The lot facing the highway · The slope nobody priced · The parcel behind the billboard · The strip along the ditch · The acre with the good light · The corner the survey skipped · The field past the last fence ·
+            </p>
+            <p aria-hidden="true">
+              The wet corner · The lot facing the highway · The slope nobody priced · The parcel behind the billboard · The strip along the ditch · The acre with the good light · The corner the survey skipped · The field past the last fence ·
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="parcels" aria-labelledby="plat-title">
+        <h2 id="plat-title" class="parcels-title">The obvious parcels</h2>
+        <div class="sheet">
+          <div class="plat" id="plat"></div>
+          <p class="sheet-caption">One of these was passed over.</p>
+        </div>
       </section>
 
       <section class="contact" id="contact" aria-labelledby="contact-title">
@@ -51,9 +69,12 @@
           <p class="form-error" id="form-error" role="alert" hidden></p>
           <button type="submit">Send</button>
         </form>
-        <p class="thanks" id="thanks" role="status" hidden>
-          Received. Nothing was sent. This is a concept site.
-        </p>
+        <div class="thanks" id="thanks" role="status" hidden>
+          <svg class="parcel-mark" viewBox="0 0 100 100" aria-hidden="true">
+            <path id="parcel-outline" fill="none" pathLength="1" />
+          </svg>
+          <p>Received. Nothing was sent. This parcel stays on the page.</p>
+        </div>
       </section>
     </main>
 

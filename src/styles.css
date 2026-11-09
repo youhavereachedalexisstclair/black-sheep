@@ -68,13 +68,15 @@ textarea:focus-visible {
 }
 
 .hero {
+  position: relative;
   min-height: calc(100svh - 4.25rem);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 1.5rem 1.25rem 4rem;
+  padding: 1.5rem 1.25rem 5.5rem;
+  overflow: hidden;
 }
 
 .flock {
@@ -85,6 +87,13 @@ textarea:focus-visible {
   display: block;
   width: 100%;
   height: auto;
+  overflow: visible;
+}
+
+.notice,
+.glint-track {
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
 .sheep,
@@ -94,46 +103,52 @@ textarea:focus-visible {
 }
 
 .arrive-left {
-  animation: arrive-left 900ms cubic-bezier(0.16, 0.84, 0.32, 1) both;
+  animation: arrive-left 700ms cubic-bezier(0.16, 0.84, 0.32, 1) both;
 }
 
 .arrive-right {
-  animation: arrive-right 900ms cubic-bezier(0.16, 0.84, 0.32, 1) 80ms both;
+  animation: arrive-right 700ms cubic-bezier(0.16, 0.84, 0.32, 1) 700ms both;
 }
 
-.arrive-up {
-  animation: arrive-up 1000ms cubic-bezier(0.16, 0.84, 0.32, 1) 160ms both;
+.arrive-fade {
+  animation: arrive-fade 700ms ease 1460ms both;
+}
+
+.sunglasses {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: shades 520ms cubic-bezier(0.16, 0.84, 0.24, 1.2) 2080ms both;
 }
 
 .sheep {
-  animation: bob 5.2s ease-in-out 1s infinite;
+  animation: bob 5.2s ease-in-out 700ms infinite;
 }
 
 #sheep-right.sheep {
-  animation-delay: 1.08s;
+  animation-delay: 1.4s;
 }
 
 #sheep-center.sheep {
-  animation-delay: 1.16s;
+  animation-delay: 2.6s;
 }
 
 .glint {
   opacity: 0;
-  animation: glint 5.2s ease-in-out 1.16s infinite;
+  animation: glint 5.2s ease-in-out 2.7s infinite;
 }
 
 .wordmark,
 .lede,
 .hero .cta {
-  animation: rise 800ms cubic-bezier(0.16, 0.84, 0.32, 1) 420ms both;
+  animation: rise 800ms cubic-bezier(0.16, 0.84, 0.32, 1) 2200ms both;
 }
 
 .lede {
-  animation-delay: 540ms;
+  animation-delay: 2340ms;
 }
 
 .hero .cta {
-  animation-delay: 660ms;
+  animation-delay: 2480ms;
 }
 
 .wordmark {
@@ -168,6 +183,125 @@ textarea:focus-visible {
 .cta:hover {
   background: var(--fg);
   color: var(--bg);
+}
+
+.ticker {
+  position: absolute;
+  right: 0;
+  bottom: 1.35rem;
+  left: 0;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  user-select: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 52s linear infinite;
+}
+
+.ticker-track p {
+  margin: 0;
+  padding-right: 0.4rem;
+  white-space: nowrap;
+}
+
+.parcels {
+  padding: 1rem 1.5rem 5.5rem;
+}
+
+.parcels-title,
+.sheet-caption {
+  margin: 0 auto;
+  max-width: 52rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.parcels-title {
+  margin-bottom: 1.15rem;
+}
+
+.sheet {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.15rem 1.15rem 1rem;
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.plat {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.45rem;
+}
+
+.plot {
+  aspect-ratio: 5 / 4;
+  border: 1px solid var(--bg);
+  background: var(--fg);
+}
+
+.plot-chosen {
+  display: block;
+  background: var(--bg);
+  color: inherit;
+}
+
+.plot-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  transform-origin: center;
+  transition: transform 320ms cubic-bezier(0.16, 0.84, 0.32, 1);
+}
+
+.plot-chosen:hover .plot-fill,
+.plot-chosen:focus-visible .plot-fill {
+  transform: scale(1.08);
+}
+
+.plot-chosen:focus-visible {
+  outline: 1px solid var(--bg);
+  outline-offset: 4px;
+}
+
+.sheet-caption {
+  margin: 0.95rem 0 0;
+}
+
+.parcel-mark {
+  display: block;
+  width: 7.5rem;
+  height: 7.5rem;
+  margin: 0 0 1rem;
+}
+
+.parcel-mark path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.parcel-mark.is-drawn path {
+  animation: draw-parcel 1.15s cubic-bezier(0.16, 0.84, 0.32, 1) forwards;
+}
+
+.thanks p {
+  margin: 0;
 }
 
 .contact {
@@ -273,6 +407,179 @@ button:hover {
   color: var(--muted);
 }
 
+html.has-cursor,
+html.has-cursor * {
+  cursor: none;
+}
+
+html.has-cursor input,
+html.has-cursor textarea {
+  cursor: auto;
+}
+
+.cursor {
+  --x: -40px;
+  --y: -40px;
+  --gx: -40px;
+  --gy: -40px;
+  --gap: 11px;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+
+.cursor.is-off,
+.cursor.is-typing {
+  opacity: 0;
+}
+
+.cursor-axis {
+  position: absolute;
+  background: #fff;
+}
+
+.cursor-axis-x {
+  top: var(--y);
+  height: 1px;
+}
+
+.cursor-axis-y {
+  left: var(--x);
+  width: 1px;
+}
+
+.cursor-axis-x.cursor-axis-start {
+  left: 0;
+  width: max(0px, calc(var(--x) - var(--gap)));
+}
+
+.cursor-axis-x.cursor-axis-end {
+  left: calc(var(--x) + var(--gap));
+  right: 0;
+}
+
+.cursor-axis-y.cursor-axis-start {
+  top: 0;
+  height: max(0px, calc(var(--y) - var(--gap)));
+}
+
+.cursor-axis-y.cursor-axis-end {
+  top: calc(var(--y) + var(--gap));
+  bottom: 0;
+}
+
+.cursor-mark,
+.cursor-ghost {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+}
+
+.cursor-mark {
+  transform: translate3d(var(--x), var(--y), 0);
+}
+
+.cursor-ghost {
+  transform: translate3d(var(--gx), var(--gy), 0);
+}
+
+.cursor-plot,
+.cursor-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+.cursor-plot {
+  width: 22px;
+  height: 22px;
+  transform: translate(-50%, -50%) scale(1);
+  transition:
+    transform 220ms cubic-bezier(0.16, 0.84, 0.32, 1),
+    opacity 160ms ease;
+}
+
+.cursor-plot span {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0;
+  transition:
+    width 220ms cubic-bezier(0.16, 0.84, 0.32, 1),
+    height 220ms cubic-bezier(0.16, 0.84, 0.32, 1);
+}
+
+.cursor-plot span:nth-child(1) {
+  top: 0;
+  left: 0;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+
+.cursor-plot span:nth-child(2) {
+  top: 0;
+  right: 0;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+
+.cursor-plot span:nth-child(3) {
+  right: 0;
+  bottom: 0;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+}
+
+.cursor-plot span:nth-child(4) {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+
+.cursor-ghost .cursor-plot {
+  width: 36px;
+  height: 36px;
+  transition: opacity 160ms ease;
+}
+
+.cursor-ghost .cursor-plot span {
+  width: 7px;
+  height: 7px;
+  transition: none;
+}
+
+.cursor.is-hot {
+  --gap: 14px;
+}
+
+.cursor.is-hot .cursor-plot {
+  opacity: 0;
+}
+
+.cursor.is-down .cursor-mark .cursor-plot {
+  transform: translate(-50%, -50%) scale(0.82);
+}
+
+.cursor-ring {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #fff;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.4);
+}
+
+.cursor.is-down .cursor-ring {
+  animation: cursor-stamp 460ms cubic-bezier(0.16, 0.84, 0.32, 1);
+}
+
 @keyframes arrive-left {
   from {
     opacity: 0;
@@ -295,14 +602,27 @@ button:hover {
   }
 }
 
-@keyframes arrive-up {
+@keyframes arrive-fade {
   from {
     opacity: 0;
-    transform: translateY(48px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+  }
+}
+
+@keyframes shades {
+  0% {
+    opacity: 0;
+    transform: translateY(-26px) scale(0.94);
+  }
+  68% {
+    opacity: 1;
+    transform: translateY(1px) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -339,6 +659,32 @@ button:hover {
   }
 }
 
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes draw-parcel {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes cursor-stamp {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.55);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2.8);
+  }
+}
+
 @media (max-width: 640px) {
   .nav {
     padding-inline: 1.1rem;
@@ -351,6 +697,15 @@ button:hover {
   .contact {
     padding-top: 4rem;
   }
+
+  .plat {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.35rem;
+  }
+
+  .sheet {
+    padding: 0.75rem 0.75rem 0.85rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -360,16 +715,39 @@ button:hover {
 
   .arrive-left,
   .arrive-right,
-  .arrive-up,
+  .arrive-fade,
+  .sunglasses,
   .sheep,
   .glint,
   .wordmark,
   .lede,
-  .hero .cta {
+  .hero .cta,
+  .ticker-track,
+  .parcel-mark.is-drawn path {
     animation: none;
   }
 
   .glint {
     opacity: 0;
+  }
+
+  .parcel-mark.is-drawn path {
+    stroke-dashoffset: 0;
+  }
+
+  .plot-chosen:hover .plot-fill,
+  .plot-chosen:focus-visible .plot-fill {
+    transform: none;
+  }
+
+  .cursor-ghost {
+    display: none;
+  }
+
+  .cursor-plot,
+  .cursor-plot span,
+  .cursor-ring {
+    transition: none;
+    animation: none;
   }
 }
